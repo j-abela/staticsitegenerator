@@ -1,3 +1,6 @@
+from textnode import TextNode, TextType
+
 def main():
-    print("Hello world!")
+    dummynode = TextNode("Some text", TextType.BOLD_TEXT, "https://www.jacob.com.au")
+    print(dummynode)
 main()
