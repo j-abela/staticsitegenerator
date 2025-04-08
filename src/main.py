@@ -1,5 +1,5 @@
 from textnode import TextNode, TextType
-from text_to_html_transformer import *
+from src.utilities import *
 
 def main():
     text_node = TextNode("Alt text", TextType.IMAGE, "https://example.com/image.png")

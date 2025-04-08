@@ -18,3 +18,6 @@ def text_node_to_html_node(text_node):
             return LeafNode("img", "", props)
         case _:
             raise ValueError(f"Invalid text type: {text_node.text_type}")
+        
+def split_nodes_delimiter(old_nodes, delimiter, text_type):
+    pass
