@@ -1,6 +1,8 @@
 from textnode import TextNode, TextType
+from text_to_html_transformer import *
 
 def main():
-    dummynode = TextNode("Some text", TextType.BOLD_TEXT, "https://www.jacob.com.au")
-    print(dummynode)
+    text_node = TextNode("Alt text", TextType.IMAGE, "https://example.com/image.png")
+    html_node = text_node_to_html_node(text_node)
+    print(html_node.to_html())
 main()
