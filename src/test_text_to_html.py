@@ -1,5 +1,5 @@
 import unittest
-from src.utilities import *
+from utilities import *
 
 class TestTextToHTMLTransformer(unittest.TestCase):
     def test_text(self):

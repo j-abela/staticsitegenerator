@@ -20,4 +20,27 @@ def text_node_to_html_node(text_node):
             raise ValueError(f"Invalid text type: {text_node.text_type}")
         
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
-    pass
+    new_nodes = []
+
+    if old_nodes == []:
+        return []
+    
+    for old_node in old_nodes:
+        # Only process TEXT nodes
+        if old_node.text_type != TextType.TEXT:
+            new_nodes.append(old_node)
+            continue
+        
+        # Split node on delimiter
+        segments = old_node.text.split(delimiter)
+
+        # Check for invalid markdown syntax
+        if len(segments) % 2 == 0:
+            raise Exception(f"invalid markdown syntax - unmatched delimiter '{delimiter}'")
+                    
+        for i in range(len(segments)):
+            # Even indices are TEXT, odd indices are special text type
+            current_text_type = TextType.TEXT if i % 2 == 0 else text_type
+            new_nodes.append(TextNode(segments[i], current_text_type))
+            
+    return new_nodes
