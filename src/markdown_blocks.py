@@ -131,10 +131,28 @@ def code_to_html_node(block):
         return ParentNode("pre", [code])
 
 def olist_to_html_node(block):
-    pass
+    lines = block.split("\n")
+    html_items = []
+    for line in lines:
+        text = line[3:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ol", html_items)
 
 def ulist_to_html_node(block):
-    pass
+    lines = block.split("\n")
+    html_items = []
+    for line in lines:
+        text = line[2:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ul", html_items)
 
 def quote_to_html_node(block):
-    pass
+    lines = block.split("\n")
+    new_lines = []
+    for line in lines:
+        new_lines.append(line[2:])
+    content = " ".join(new_lines)
+    children = text_to_children(content)
+    return ParentNode("blockquote", children)
