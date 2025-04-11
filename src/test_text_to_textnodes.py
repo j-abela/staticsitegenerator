@@ -1,6 +1,7 @@
 import unittest
-from utilities import *
-from blocks import *
+from textnode import TextNode, TextType
+from utilities import text_to_textnodes
+from markdown_blocks import markdown_to_blocks, block_to_block_type, BlockType
 
 class TestTextToTextNodes(unittest.TestCase):
     def test_all(self):
